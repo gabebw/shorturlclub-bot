@@ -6,7 +6,6 @@ if [[ ! -f .env ]]; then
   cp .sample.env .env
 fi
 
-heroku git:remote --remote production --app shorturlclub-bot-production
-heroku git:remote --remote staging --app shorturlclub-bot-staging
+heroku git:remote --remote production --app shorturlclub-bot
 
 createdb twitter
