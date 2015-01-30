@@ -32,10 +32,7 @@ streaming do
   replies do |tweet|
     username = from_user(tweet)
 
-    if database.has_app?(username)
-      url = database.url_for(username)
-      reply "#USER# You're already in the club! Your clubhouse is at #{url}", tweet
-    else
+    unless database.has_app?(username)
       response = deployer.deploy(username)
 
       if response.code == 201
